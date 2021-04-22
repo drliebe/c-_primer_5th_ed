@@ -1,0 +1,25 @@
+#include <iostream>
+
+template <typename T> 
+int compare(const T &v1, const T &v2)
+{
+	if (std::less<T>()(v1, v2)) 
+		return -1;
+	if (std::less<T>()(v2,v1))
+		return 1;
+	return 0;
+}
+
+
+int main()
+{
+	std::cout << compare(1,2) << std::endl;
+	std::cout << compare(2,1) << std::endl;
+	std::cout << compare(1.0, 2.0) << std::endl;
+	std::cout << compare(2.0, 1.0) << std::endl;
+	std::cout << compare(std::string("abc"), std::string("abc")) << std::endl;
+	std::cout << compare(std::string("abc"), std::string("def")) << std::endl;
+	std::cout << compare(std::string("def"), std::string("abc")) << std::endl;
+
+	return 0;
+}
